@@ -7,7 +7,7 @@ export default function CreateUser() {
 
   useEffect(() => {
     getData();
-  });
+  }, []);
 
   const getData = async () => {
     const res = await axios.get("http://localhost:4000/api/users");
@@ -23,8 +23,13 @@ export default function CreateUser() {
     await axios.post("http://localhost:4000/api/users", {
       username: newUser
     });
+    setNewUser("");
+    getData();
+  };
 
-    setNewUser("")
+  const deleteUser = async id => {
+    await axios.delete(`http://localhost:4000/api/users/${id}`);
+    getData();
   };
 
   return (
@@ -51,8 +56,9 @@ export default function CreateUser() {
         <ul className="list-group">
           {users.map(user =>
             <li
-              key={user._id}
               className="list-group-item list-group-item-action"
+              key={user._id}
+              onClick={() => deleteUser(user._id)}
             >
               {user.username}
             </li>
