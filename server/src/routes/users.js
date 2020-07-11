@@ -5,10 +5,11 @@ const router = Router();
 const {
   getUsers,
   createUser,
-  deleteUser
+  deleteUser,
+  getUser
 } = require("../controllers/users.controller");
-router.route("/").get((req, res) => res.send("Users"));
+router.route("/").get(getUsers).post(createUser);
 
-router.route("/:id").get(getUsers);
+router.route("/:id").get(getUser).delete(deleteUser);
 
 module.exports = router;
