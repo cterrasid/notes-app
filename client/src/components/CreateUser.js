@@ -52,7 +52,7 @@ export default function CreateUser() {
           </form>
         </div>
       </section>
-      <section className="col-md-8">
+      <article className="col-md-8">
         <ul className="list-group">
           {users.map(user =>
             <li
@@ -64,7 +64,7 @@ export default function CreateUser() {
             </li>
           )}
         </ul>
-      </section>
+      </article>
     </section>
   );
 }
