@@ -33,7 +33,7 @@ export default function Navigation() {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/user">
-                Create user
+                Create member
               </Link>
             </li>
           </ul>

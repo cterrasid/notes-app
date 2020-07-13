@@ -84,7 +84,7 @@ export default function CreateNote() {
               value={inputValue.user}
               onChange={onInputChange}
             >
-              <option defaultValue value="0">Select an author</option>
+              <option defaultValue value="0">Select a member</option>
               {users.map(user =>
                 <option key={user} value={user}>
                   {user}
