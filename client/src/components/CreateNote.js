@@ -9,7 +9,7 @@ export default function CreateNote() {
 
   const [users, setUsers] = useState([]);
   const [inputValue, setInputValue] = useState({
-    user: users[0],
+    user: "",
     title: "",
     content: ""
   });
@@ -42,7 +42,7 @@ export default function CreateNote() {
       author: user
     };
     if (isEditing) {
-        await axios.put(`http://localhost:4000/api/notes/${noteId}`, newNote);
+      await axios.put(`http://localhost:4000/api/notes/${noteId}`, newNote);
     } else {
       await axios.post("http://localhost:4000/api/notes/", newNote);
     }
@@ -81,9 +81,10 @@ export default function CreateNote() {
             <select
               className="form-control"
               name="user"
-              value={inputValue.author}
+              value={inputValue.user}
               onChange={onInputChange}
             >
+              <option defaultValue value="0">Select an author</option>
               {users.map(user =>
                 <option key={user} value={user}>
                   {user}
